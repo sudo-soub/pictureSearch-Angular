@@ -15,10 +15,12 @@ Check for the connection to the backend api. Use the apiUrl given in _environmen
 
 If any new component is required, create it by using the command
 > ng g c component_name  
-It will automatically be imorted in the project's module file.
+
+It will automatically be imported in the project's module file.
 
 Run the application by
 > ng serve  
+
 By default it runs with port 4200, you can access it by visiting localhost:4200 in any browser. Here it uses the environment.ts file by default.
 
 The default route points to /home where the user can provide the inputs.
@@ -30,5 +32,6 @@ After adding images to favourites, user can view them by clicking on the favouri
 
 For building the application for production environment,
 > ng build --prod  
+
 Here the environment.prod.ts file is used instead od the environment.ts. So make sure the variables are properly set.
 The output of the built project is dist/project_name folder. It can be changed in _angular.json_ file
