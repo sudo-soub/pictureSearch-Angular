@@ -34,4 +34,4 @@ For building the application for production environment,
 > ng build --prod  
 
 Here the environment.prod.ts file is used instead od the environment.ts. So make sure the variables are properly set.
-The output of the built project is dist/project_name folder. It can be changed in _angular.json_ file
+The output of the built project is _dist/project_name_ folder. It can be changed in _angular.json_ file
