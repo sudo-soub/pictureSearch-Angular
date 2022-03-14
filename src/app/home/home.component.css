@@ -1,0 +1,28 @@
+.form-inline {
+    display: block;
+}
+
+.nameInput {
+    width: 100%;
+}
+
+.selectInput {
+    width: 100%;
+}
+
+.images {
+    max-height: 300px;
+    max-width: 300px;
+}
+
+img {
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: fill;
+    cursor: pointer;
+}
+
+a {
+    position: absolute;
+    margin-top: 0.7rem;
+}

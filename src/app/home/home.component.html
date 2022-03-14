@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <h2 class="text-center mt-5">Picture Search by Geolocation</h2>
+        </div>
+        <div class="col-md-2 pt-5">
+            <a href="/favourites">Favourites</a>
+        </div>
+    </div>
+    <div class="p-3">
+        <h6>Enter city name or lat/lon values of your choice:</h6>
+        <form action="javascript:void(0)" class="form-inline" (submit)="getValues()" [formGroup]="valueForm">
+            <div class="row">
+                <div class="col-10">
+                    <input type="text" class="form-control nameInput" formControlName="values" name="cityValue"
+                        [(ngModel)]="cityValue" id="nameInput"
+                        placeholder="Enter latitude, longitude values or city name">
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="p-3">
+        <h6>Choose from our list:</h6>
+        <form action="javascript:void(0)" class="form-inline" (submit)="getNamePhotos()">
+            <div class="row">
+                <div class="col-10">
+                    <select name="cityName" id="citySelect" class="form-control selectInput" [(ngModel)]="selectedName">
+                        <option value="" selected disabled>Select city name</option>
+                        <option value="{{ city }}" *ngFor="let city of cities['cities']">{{ city }}</option>
+                    </select>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<!-- Display images here -->
+<div class="container-fluid mt-5" *ngIf="isFlickr">
+    <h6 class="text-center">Click on any image to add to favourites</h6>
+    <div class="row">
+        <div class="col-2" *ngFor="let item of flickr['pictures']">
+            <div class="images p-2 m-2">
+                <img src="{{ item.url }}" alt="" (click)="addtoFavourites(item.url)">
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5 pb-5">
+        <div class="row text-center">
+            <div class="col-6">
+                <button class="btn btn-info" (click)="prevPage()">Previous Page</button>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-info" (click)="nextPage()">Next Page</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#ff0000" type = "ball-clip-rotate-multiple" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
