@@ -1,0 +1,49 @@
+<div class="container p-5">
+    <div class="card mt-5">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+            <strong>User registration</strong>
+        </h5>
+
+        <div class="card-body px-lg-5 pt-0">
+
+            <form class="md-form" style="color: #757575;" (submit)="register()">
+
+                <div class="username mt-5">
+                    <label for="username">Enter username</label>
+                    <input type="text" id="username" class="form-control" [(ngModel)]="username" name="username">
+                </div>
+
+                <div class="password mt-2">
+                    <label for="password">Enter password</label>
+                    <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password">
+                </div>
+
+                <div class="confirm mt-2">
+                    <label for="conf_password">Confirm password</label>
+                    <input type="password" id="conf_password" class="form-control" [(ngModel)]="confPassword" name="confPassword">
+                </div>
+
+                <div class="text-center mt-5">
+                    <span class="error" *ngIf="regError">
+                        {{ message }}
+                    </span>
+                    <span class="success" *ngIf="regSuccess">
+                        {{  message }}
+                    </span>
+                </div>
+                
+                <div class="text-center">
+                    <button class="reg-btn btn btn-outline-info btn-rounded my-4 waves-effect z-depth-0" type="submit">Sign up</button>
+                </div>
+
+                <div class="text-center">
+                    <p>Already a member?
+                        <a href="/login">Login</a>
+                    </p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

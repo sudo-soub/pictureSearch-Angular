@@ -1,0 +1,14 @@
+.reg-btn {
+    width: 200px;
+    border-radius: 20px;
+}
+
+.error {
+    color: red;
+    font-weight: 500;
+}
+
+.success {
+    color: rgb(0, 172, 0);
+    font-weight: 500;
+}

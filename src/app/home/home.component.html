@@ -1,12 +1,29 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-10">
-            <h2 class="text-center mt-5">Picture Search by Geolocation</h2>
-        </div>
-        <div class="col-md-2 pt-5">
-            <a href="/favourites">Favourites</a>
-        </div>
-    </div>
+<div class="container-fluid text-center heading">
+    <h2>Welcome to Picture Search by Geolocation</h2>
+</div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <span class="navbar-brand">Hello, {{ username }}</span>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/favorites">Favorites</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" (click)="logout()">Logout</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container mt-5 mb-2">
+    <p class="about">
+        This application provides you the functionality to search for images based on location details. You can provide
+        the details as name of any place
+        or the coordinates of the place. You can also choose from the preset list of places. You can save the images to
+        your favorites gallery by
+        clicking on them.
+    </p>
+</div>
+
+<div class="container mt-5">
     <div class="p-3">
         <h6>Enter city name or lat/lon values of your choice:</h6>
         <form action="javascript:void(0)" class="form-inline" (submit)="getValues()" [formGroup]="valueForm">
@@ -53,14 +70,34 @@
     </div>
     <div class="container mt-5 pb-5">
         <div class="row text-center">
-            <div class="col-6">
-                <button class="btn btn-info" (click)="prevPage()">Previous Page</button>
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="javascript:void(0)" class="firstpage" (click)="firstpage()">&#60;&#60; First page</a>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-info" (click)="prevPage()">Previous Page</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-6">
-                <button class="btn btn-info" (click)="nextPage()">Next Page</button>
+            <div class="col-4">
+                <p class="current">Current Page: {{ page }}</p>
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-6">
+                        <button class="btn btn-info" (click)="nextPage()">Next Page</button>
+                    </div>
+                    <div class="col-6">
+                        <a href="javascript:void(0)" class="lastpage" (click)="lastpage()">Last page &#62;&#62;</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#ff0000" type = "ball-clip-rotate-multiple" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#ff0000" type="ball-clip-rotate-multiple"
+    [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>

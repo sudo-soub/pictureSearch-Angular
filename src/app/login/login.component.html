@@ -1,0 +1,40 @@
+<div class="container p-5">
+    <div class="card mt-5">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+            <strong>Sign in</strong>
+        </h5>   
+    
+        <div class="card-body px-lg-5 pt-0">
+    
+            <form class="md-form" style="color: #757575;" (submit)="login()">
+
+                <div class="mt-5">
+                    <label for="materialLoginFormEmail">Username</label>
+                    <input type="text" id="materialLoginFormEmail" class="form-control" name="username" [(ngModel)]="username">
+                </div>
+                
+                <div class="mt-2">
+                    <label for="materialLoginFormPassword">Password</label>
+                    <input type="password" id="materialLoginFormPassword" class="form-control" name="password" [(ngModel)]="password">
+                </div>
+
+                <div class="error text-center mt-5">
+                    <span class="error-msg" *ngIf="error">
+                        {{ error_message }}
+                    </span>
+                </div>
+                
+                <div class="text-center">
+                    <button class="submit-btn btn btn-outline-info btn-rounded my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+                </div>
+    
+                <div class="text-center">
+                    <p>Not a member?
+                        <a href="/register">Register</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

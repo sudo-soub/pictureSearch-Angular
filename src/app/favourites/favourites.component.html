@@ -1,16 +1,49 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-10">
-            <h2 class="text-center mt-5">Favourites Gallery</h2>
-        </div>
-        <div class="col-md-2 pt-5">
-            <a href="/home">Home</a>
+<div class="container-fluid text-center heading">
+    <h2>Welcome to Picture Search by Geolocation</h2>
+</div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <span class="navbar-brand">Hello, {{ username }}</span>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" (click)="logout()">Logout</a>
+        </li>
+    </ul>
+</nav>
+<div class="container mt-5">
+    <h3 class="text-center">Collection of your choosen pictures</h3>
+    <p class="text-center">* <i>Click on any image to delete</i></p>
+    <div class="row mt-5" *ngIf="show">
+        <div class="col" *ngFor="let image of images['data']">
+            <div class="f_images p-2">
+                <img src="{{ image }}" alt="{{ image }}" data-toggle="modal" data-target="#myModal" (click)="fetchimage(image)" class="favimage">
+            </div>
         </div>
     </div>
-    <div class="row mt-5" *ngIf="show">
-        <div class="col-2" *ngFor="let image of images['data']">
-            <div class="f_images p-2">
-                <img src="{{ image }}" alt="{{ image }}">
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">{{ username }}</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    This process is irreversible. Do you want to continue?
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteimage()">Delete</button>
+                </div>
+
             </div>
         </div>
     </div>

@@ -1,0 +1,9 @@
+.submit-btn {
+    border-radius: 20px;
+    width: 200px;
+}
+
+.error-msg {
+    color: red;
+    font-weight: 500;
+}
